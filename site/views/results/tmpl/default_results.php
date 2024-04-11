@@ -35,7 +35,10 @@ else
         <input type="hidden" name="division"
                value="<?php echo Factory::getApplication()->input->getVar('division'); ?>"/>
 
-               
+               <?php
+               if ( $this->view == 'results' )
+               {
+               ?>
         <div class="row">       
         <div class="display-limit col-lg-2 col-md-2 col-sm-2 col-xs-2">
 			<?php echo Text::_('JGLOBAL_DISPLAY_NUM'); ?>&#160;
@@ -58,12 +61,21 @@ else
         </div>
           
         </div>
+        <?php
+        }
+        if ( $this->view == 'results' )
+               {
+        ?>
          <div class="row"> 
         <div class="  col-lg-12 col-md-12 col-sm-12 col-xs-12">
            <?php echo $this->pagination->getPagesLinks(); ?>
            </div>
            </div>
+           
+           
+           
 		<?php
+        }
 		if (count($this->matches) > 0)
 		{
 			switch ($this->config['result_style'])
